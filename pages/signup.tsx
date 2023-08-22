@@ -45,6 +45,7 @@ const SignUp: React.FC = () => {
           width={500}
           height={500}
           unoptimized
+          priority={false}
         />
       </Flex>
       <Flex flex={1} w="full" align="center" justify="center">
@@ -83,6 +84,7 @@ const SignUp: React.FC = () => {
                 type="email"
                 {...register('email')}
                 placeholder="teste@gmail.com"
+                autoComplete="on"
               />
               <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
             </FormControl>
@@ -98,6 +100,7 @@ const SignUp: React.FC = () => {
                     type={showPassword ? 'text' : 'password'}
                     {...register('password')}
                     placeholder="*****"
+                    autoComplete="on"
                   />
                   <InputRightElement h={'full'}>
                     <CustomButtonPassword
@@ -121,6 +124,7 @@ const SignUp: React.FC = () => {
                     type={showConfirmPassword ? 'text' : 'password'}
                     {...register('confirmPassword')}
                     placeholder="*****"
+                    autoComplete="on"
                   />
                   <InputRightElement h={'full'}>
                     <CustomButtonPassword

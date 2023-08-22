@@ -1,6 +1,6 @@
 import { forwardRef, ChangeEvent  } from 'react';
 import { mask as masker, unMask } from 'remask';
-import { InputProps } from '../../interface/masked-input';
+import { InputProps } from '../../types/masked-input';
 import { Input } from '@chakra-ui/react';
 
 const CustomInputMask = forwardRef<HTMLInputElement, InputProps>(
