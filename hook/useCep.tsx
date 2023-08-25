@@ -1,11 +1,14 @@
 import React, { useCallback, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+
+import userSchema from '../schema/signup';
+import { registerUser } from '../services/user-service';
+import { SignUpForm, AddressData } from '../types/signup-form';
+import { zipCodeMask } from '../utils/input-mask';
+
+import { useToast } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
-import userSchema from '../schema/signup';
-import { SignUpForm, AddressData } from '../types/signup-form';
-import { registerUser } from '../services/user-service';
-import { zipCodeMask } from '../utils/input-mask';
 
 export const useCep = () => {
   const {
@@ -41,6 +44,8 @@ export const useCep = () => {
   });
   const zipCode = watch('address.zipCode');
 
+  const toast = useToast();
+
   const handleFormSubmit = async (data: SignUpForm) => {
     try {
       await registerUser(data);
@@ -49,6 +54,14 @@ export const useCep = () => {
       // router.push('/login');
     } catch (error) {
       console.error('Error submitting form:', error.response.data.message);
+      toast({
+        title: 'Erro ao submeter os dados.',
+        description: `${error.response.data.message}`,
+        status: 'error',
+        duration: 20000,
+        isClosable: true,
+        position: 'top-left'
+      });
     }
   };
   const handleSetData = useCallback(

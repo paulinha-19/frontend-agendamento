@@ -1,6 +1,13 @@
-import React, { useState } from 'react';
 import Image from 'next/image';
+import React, { useState } from 'react';
 import { Controller } from 'react-hook-form';
+
+import CustomInputMask from '../components/MaskedInput';
+
+import { useCep } from '../hook/useCep';
+import { CustomButtonPassword } from '../styles/customForm';
+
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import {
   Button,
   Flex,
@@ -15,10 +22,6 @@ import {
   InputGroup,
   InputRightElement
 } from '@chakra-ui/react';
-import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-import CustomInputMask from '../components/MaskedInput';
-import { CustomButtonPassword } from '../styles/customForm';
-import { useCep } from '../hook/useCep';
 
 const SignUp: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -144,7 +147,7 @@ const SignUp: React.FC = () => {
               </FormControl>
             </Flex>
             <FormControl id="birth" isInvalid={!!errors.birth}>
-              <FormLabel>Data de nasciemento</FormLabel>
+              <FormLabel>Data de nascimento</FormLabel>
               <Input
                 type="date"
                 {...register('birth')}
