@@ -9,18 +9,19 @@ import { CustomButtonPassword } from '../styles/customForm';
 
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import {
+  Box,
   Button,
   Flex,
-  Input,
-  Select,
-  FormLabel,
   FormControl,
-  Box,
-  Heading,
-  Stack,
   FormErrorMessage,
+  FormLabel,
+  Heading,
+  Input,
   InputGroup,
-  InputRightElement
+  InputRightElement,
+  Select,
+  Stack,
+  useToast
 } from '@chakra-ui/react';
 
 const SignUp: React.FC = () => {
@@ -34,6 +35,9 @@ const SignUp: React.FC = () => {
     handleSubmit,
     handleFormSubmit
   } = useCep();
+
+  const toast = useToast();
+
   return (
     <Stack w="full" minH="100vh" direction={{ md: 'row' }}>
       <Flex
@@ -192,9 +196,9 @@ const SignUp: React.FC = () => {
               <FormErrorMessage>{errors.phone?.message}</FormErrorMessage>
             </FormControl>
             <FormControl id="gender" isInvalid={!!errors.gender}>
-              <FormLabel>Genero</FormLabel>
+              <FormLabel>Gênero</FormLabel>
               <Select {...register('gender')}>
-                <option value="">Select gender</option>
+                <option value="">Selecione uma opção</option>
                 <option value="Feminino">Feminino</option>
                 <option value="Masculino">Masculino</option>
                 <option value="Não binário">Não binário</option>
