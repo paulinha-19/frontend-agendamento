@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import { Controller } from 'react-hook-form';
 import {
@@ -10,11 +11,13 @@ import {
   Heading,
   FormErrorMessage,
   InputGroup,
-  InputRightElement
+  InputRightElement,
+  Stack,
+  Text
 } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { CustomInputMask, CustomInput, CustomSelect } from '../components';
-import { CustomButtonPassword } from '../styles/customForm';
+import { CustomButtonPassword, CustomText } from '../styles/customForm';
 import { useCep, useBreakpoint } from '../hook';
 
 const SignUp: React.FC = () => {
@@ -272,17 +275,24 @@ const SignUp: React.FC = () => {
             </FormErrorMessage>
           </FormControl>
 
-          <Box minW="100%">
+          <Stack minW="100%">
             <Button
               colorScheme="blue"
               variant="solid"
               type="submit"
               width="100%"
               mt={8}
+              mb={3}
             >
               {isSubmitting ? 'Criando conta...' : 'Criar conta'}
             </Button>
-          </Box>
+            <Text align="center">
+              Já tem uma conta?{' '}
+              <Link href="/login">
+                <CustomText as="span">Conecte-se</CustomText>
+              </Link>
+            </Text>
+          </Stack>
         </form>
       </Box>
     </Flex>
