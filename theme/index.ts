@@ -3,7 +3,7 @@ import { extendTheme } from '@chakra-ui/react';
 export const theme = extendTheme({
   colors: {
     primary: {
-      100: '#1984F7',
+      100: '#E0F0FF',
       500: '#0052AC',
       900: '#002E5E'
     },
@@ -31,6 +31,13 @@ export const theme = extendTheme({
       100: '#81c784',
       500: '#66bb6a',
       900: '#388e3c'
+    }
+  },
+  components: {
+    FormLabel: {
+      baseStyle: {
+        marginTop: '1rem'
+      }
     }
   }
 });
