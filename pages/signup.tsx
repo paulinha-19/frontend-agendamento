@@ -160,7 +160,7 @@ const SignUp: React.FC = () => {
               <FormErrorMessage>{errors.birth?.message}</FormErrorMessage>
             </FormControl>
             <FormControl id="cpf" isInvalid={!!errors.cpf}>
-              <FormLabel>Cpf</FormLabel>
+              <FormLabel>CPF</FormLabel>
               <Controller
                 name="cpf"
                 control={control}
