@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
-import { InputProps, Input } from '@chakra-ui/react';
+import { Input } from '@chakra-ui/react';
+import { InputProps } from '../../types/custom-input';
 
 export const CustomInput = forwardRef<HTMLInputElement, InputProps>(
   ({ type = 'text', name = '', ...props }, ref) => {
@@ -10,7 +11,7 @@ export const CustomInput = forwardRef<HTMLInputElement, InputProps>(
         ref={ref}
         {...props}
         bg=""
-        minHeight="3rem" // Defina uma altura mínima para o campo
+        minHeight="3rem"
       />
     );
   }

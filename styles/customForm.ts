@@ -36,11 +36,6 @@ export const CustomLabel = styled(FormLabel)`
   color: #e2e8f0;
 `;
 
-export const CustomText = styled(Text)`
-  color: blue;
-  cursor: pointer;
-`;
-
 export const CustomButtonPassword = styled(Button)<ButtonProps>`
   &:focus {
     box-shadow: none;
