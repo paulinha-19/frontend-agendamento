@@ -76,7 +76,7 @@ const SignUp: React.FC = () => {
                 <FormErrorMessage>{errors.name?.message}</FormErrorMessage>
               </FormControl>
               <FormControl id="username" isInvalid={!!errors.username}>
-                <FormLabel>Username</FormLabel>
+                <FormLabel>Nome de usuário</FormLabel>
                 <Input
                   type="text"
                   {...register('username')}
