@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
-import userSchema from '../schema/signup';
-import { registerUser } from '../services/user-service';
-import { SignUpForm, AddressData } from '../types/signup-form';
-import { zipCodeMask } from '../utils/input-mask';
+import userSchema from '../../schema/signup';
+import { registerUser } from '../../services/user-service';
+import { SignUpForm, AddressData } from '../../types/signup-form';
+import { zipCodeMask } from '../../utils/input-mask';
 
 import { useToast } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
