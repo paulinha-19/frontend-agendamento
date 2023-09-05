@@ -1,24 +1,33 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
+import React, { useState } from 'react';
 import { Controller } from 'react-hook-form';
+
+import { CustomInputMask, CustomInput, CustomSelect } from '../components';
+import CustomInputMask from '../components/MaskedInput';
+
+import { useCep, useBreakpoint } from '../hook';
+import { useCep } from '../hook/useCep';
+import { CustomButtonPassword } from '../styles/customForm';
+import { CustomButtonPassword, CustomText } from '../styles/customForm';
+
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import {
+  Box,
   Button,
   Flex,
-  FormLabel,
   FormControl,
-  Box,
-  Heading,
   FormErrorMessage,
+  FormLabel,
+  Heading,
+  Input,
   InputGroup,
   InputRightElement,
+  Select,
   Stack,
-  Text
+  Text,
+  useToast
 } from '@chakra-ui/react';
-import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-import { CustomInputMask, CustomInput, CustomSelect } from '../components';
-import { CustomButtonPassword, CustomText } from '../styles/customForm';
-import { useCep, useBreakpoint } from '../hook';
 
 const SignUp: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
