@@ -22,7 +22,8 @@ import {
   CustomLink
 } from '../components';
 import { CustomButtonPassword } from '../styles/customForm';
-import { useCep, useBreakpoint } from '../hook';
+import { useCep } from '../hook/useCep';
+import { useBreakpoint } from '../hook/useBreakpoint';
 
 const SignUp: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -42,7 +43,7 @@ const SignUp: React.FC = () => {
         w="full"
         maxW="800px"
         borderColor={isLgScreen ? '#DADCCE' : undefined}
-        borderWidth={isLgScreen ? '1px' : undefined} 
+        borderWidth={isLgScreen ? '1px' : undefined}
         borderRadius={isLgScreen ? '8px' : undefined}
         my={5}
         p={5}
