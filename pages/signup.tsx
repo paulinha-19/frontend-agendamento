@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import { Controller } from 'react-hook-form';
 import {
@@ -16,8 +15,13 @@ import {
   Text
 } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-import { CustomInputMask, CustomInput, CustomSelect } from '../components';
-import { CustomButtonPassword, CustomText } from '../styles/customForm';
+import {
+  CustomInputMask,
+  CustomInput,
+  CustomSelect,
+  CustomLink
+} from '../components';
+import { CustomButtonPassword } from '../styles/customForm';
 import { useCep, useBreakpoint } from '../hook';
 
 const SignUp: React.FC = () => {
@@ -37,9 +41,9 @@ const SignUp: React.FC = () => {
       <Box
         w="full"
         maxW="800px"
-        borderColor={isLgScreen ? '#DADCCE' : undefined} // Apply borderColor only on lg screen
-        borderWidth={isLgScreen ? '1px' : undefined} // Apply borderWidth only on lg screen
-        borderRadius={isLgScreen ? '8px' : undefined} // Apply borderRadius only on lg screen
+        borderColor={isLgScreen ? '#DADCCE' : undefined}
+        borderWidth={isLgScreen ? '1px' : undefined} 
+        borderRadius={isLgScreen ? '8px' : undefined}
         my={5}
         p={5}
       >
@@ -288,9 +292,7 @@ const SignUp: React.FC = () => {
             </Button>
             <Text align="center">
               Já tem uma conta?{' '}
-              <Link href="/login">
-                <CustomText as="span">Conecte-se</CustomText>
-              </Link>
+              <CustomLink as="span" text="Conecte-se" href="/login" />
             </Text>
           </Stack>
         </form>
