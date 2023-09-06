@@ -3,7 +3,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import userSchema from '../../schema/signup';
-import { SignUpForm, AddressData } from '../../types/signup-form';
+import { SignUpForm } from '../../types/z-infer';
+import { AddressData } from '../../types/address';
 import { registerUser } from '../../services/user-service';
 import { zipCodeMask } from '../../utils/input-mask';
 

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SignUpForm } from '../types/signup-form';
+import { SignUpForm } from '../types/z-infer';
 
 const api = axios.create({
   baseURL: 'http://localhost:5000/api'
