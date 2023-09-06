@@ -3,23 +3,17 @@ import { Card } from '../components/Card';
 import { Form } from '../components/Form';
 import { CustomLink } from '../components/CustomLink';
 import { useForms } from '../hook/useForms';
-import userSchema from '../schema/signup';
-import { emailSchema } from '../schema/index';
-import { SignUpForm } from '../types/signup-form';
-import { z } from 'zod';
-
-// type FieldEmailOnly = Pick<SignUpForm, 'email'>;
-// const emailSchema = userSchema.pick({ email: true });
-type emailSchemaOnly = z.infer<typeof emailSchema>;
+import EmailSchema from '../schema/email';
+import { EmailForm } from '../types/z-infer';
 
 const ForgotPassword = () => {
   const { errors, register, isSubmitting, reset, handleSubmit } =
-    useForms<emailSchemaOnly>({
-      schema: emailSchema,
+    useForms<EmailForm>({
+      schema: EmailSchema,
       defaultValues: {}
     });
 
-  const onSubmitForm = async (data: emailSchemaOnly) => {
+  const onSubmitForm = async (data: EmailForm) => {
     try {
       console.log('Submitted email', data);
       reset();
@@ -33,14 +27,14 @@ const ForgotPassword = () => {
   return (
     <Card.Root>
       <Card.Contents>
-        <Card.Title title="Esqueceu sua senha?" as="h4" size="lg" />
+        <Card.Title title="Esqueceu sua senha?" />
         <Card.Subtitle
           subtitle="Digite o endereço de e-mail para o qual deseja que suas informações de redefinição de senha sejam enviadas"
           color="#668CB4"
           fontSize="sm"
         />
       </Card.Contents>
-      <Form.Root<emailSchemaOnly>
+      <Form.Root<EmailForm>
         onSubmitForm={onSubmitForm}
         handleSubmit={handleSubmit}
       >

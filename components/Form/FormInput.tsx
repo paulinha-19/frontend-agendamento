@@ -1,5 +1,10 @@
 import React from 'react';
-import { FormControl, FormLabel, FormErrorMessage } from '@chakra-ui/react';
+import {
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  InputGroup
+} from '@chakra-ui/react';
 import { CustomInput } from '../../components/CustomInput';
 import { FieldValues, UseFormRegister, FieldErrors } from 'react-hook-form';
 
@@ -12,6 +17,7 @@ interface FormInputProps {
   placeholder: string;
   register: UseFormRegister<FieldValues>;
   errors: FieldErrors<FieldValues>;
+  children?: React.ReactNode;
 }
 
 export const FormInput: React.FC<FormInputProps> = ({
@@ -22,15 +28,21 @@ export const FormInput: React.FC<FormInputProps> = ({
   color = '#163D66',
   placeholder,
   register,
-  errors
+  errors,
+  children
 }) => {
   return (
     <FormControl id={id} isInvalid={!!errors[name]}>
       <FormLabel color={color}>{label}</FormLabel>
-      <CustomInput type={type} placeholder={placeholder} {...register(name)} />
-      {errors[name] && (
-        <FormErrorMessage>{errors[name]?.message}</FormErrorMessage>
-      )}
+      <InputGroup>
+        <CustomInput
+          type={type}
+          placeholder={placeholder}
+          {...register(name)}
+        />
+        {children}
+      </InputGroup>
+      <FormErrorMessage>{errors[name]?.message}</FormErrorMessage>
     </FormControl>
   );
 };
