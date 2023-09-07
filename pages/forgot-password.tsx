@@ -32,6 +32,7 @@ const ForgotPassword = () => {
           subtitle="Digite o endereço de e-mail para o qual deseja que suas informações de redefinição de senha sejam enviadas"
           color="#668CB4"
           fontSize="sm"
+          py="3"
         />
       </Card.Contents>
       <Form.Root<EmailForm>
@@ -47,7 +48,12 @@ const ForgotPassword = () => {
           errors={errors}
         />
         <Form.Actions>
-          <Form.Action isSubmitting={isSubmitting} text="Solicitar link" />
+          <Form.Action
+            isSubmitting={isSubmitting}
+            text="Solicitar link"
+            pt="5"
+            pb="8"
+          />
         </Form.Actions>
       </Form.Root>
       <CustomLink />
