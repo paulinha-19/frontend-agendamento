@@ -42,6 +42,7 @@ const ResetPassword = () => {
           subtitle="A senha deve ter entre 8 e 32 caracteres. Deve ter no mínimo 1 número, 1 letra minúscula, 1 letra maiúscula, 1 caracter especial !@#$%&*- "
           color="rgba(22, 61, 102, 0.80)"
           fontSize="sm"
+          py="3"
         />
       </Card.Contents>
       <Form.Root<PasswordForm>
@@ -79,7 +80,12 @@ const ResetPassword = () => {
           </InputRightElement>
         </Form.Input>
         <Form.Actions>
-          <Form.Action isSubmitting={isSubmitting} text="Resetar senha" />
+          <Form.Action
+            isSubmitting={isSubmitting}
+            text="Resetar senha"
+            pt="5"
+            pb="8"
+          />
         </Form.Actions>
       </Form.Root>
       <CustomLink />
