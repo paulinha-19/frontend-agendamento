@@ -6,3 +6,4 @@ import EmailSchema from '../schema/email';
 export type SignUpForm = z.infer<typeof userSchema>;
 export type PasswordForm = z.infer<typeof Password>;
 export type EmailForm = z.infer<typeof EmailSchema>;
+export type LoginUser = Pick<SignUpForm, 'email' | 'password'>
