@@ -8,7 +8,6 @@ export const useTogglePassword = () => {
   const togglePassword = () => {
     setShowPassword((prev) => !prev);
   };
-
   const toggleConfirmPassword = () => {
     setShowConfirmPassword((prev) => !prev);
   };
