@@ -6,12 +6,10 @@ import { useForms } from '../hook/useForms';
 import { PasswordForm } from '../types/z-infer';
 import PasswordSchema from '../schema/password';
 import { useTogglePassword } from '../hook/useTogglePassword';
-import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-import { InputRightElement } from '@chakra-ui/react';
-import { CustomButtonPassword } from '../styles/customForm';
 import { LayoutBackgroundColor } from '../layout/LayoutBackgroundColor';
 import { CustomImage } from '../components/CustomImage';
 import { Flex } from '@chakra-ui/react';
+import { CustomViewPassword } from '../components/CustomViewPassword';
 
 const ResetPassword = () => {
   const { errors, register, isSubmitting, reset, handleSubmit } =
@@ -80,11 +78,10 @@ const ResetPassword = () => {
               errors={errors}
               type={typePassword}
             >
-              <InputRightElement h={'full'}>
-                <CustomButtonPassword onClick={togglePassword}>
-                  {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-                </CustomButtonPassword>
-              </InputRightElement>
+              <CustomViewPassword
+                onClick={togglePassword}
+                showPassword={showPassword}
+              />
             </Form.Input>
             <Form.Input
               id="confirm-password"
@@ -95,11 +92,10 @@ const ResetPassword = () => {
               errors={errors}
               type={typeConfirmPassword}
             >
-              <InputRightElement h={'full'}>
-                <CustomButtonPassword onClick={toggleConfirmPassword}>
-                  {showConfirmPassword ? <ViewIcon /> : <ViewOffIcon />}
-                </CustomButtonPassword>
-              </InputRightElement>
+              <CustomViewPassword
+                onClick={toggleConfirmPassword}
+                showPassword={showConfirmPassword}
+              />
             </Form.Input>
             <Form.Actions>
               <Form.Action
