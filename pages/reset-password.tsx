@@ -6,7 +6,12 @@ import { useForms } from '../hook/useForms';
 import { PasswordForm } from '../types/z-infer';
 import PasswordSchema from '../schema/password';
 import { useTogglePassword } from '../hook/useTogglePassword';
-import { CustomViewPassword } from '../components/CustomViewPassword';
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+import { InputRightElement } from '@chakra-ui/react';
+import { CustomButtonPassword } from '../styles/customForm';
+import { LayoutBackgroundColor } from '../layout/LayoutBackgroundColor';
+import { CustomImage } from '../components/CustomImage';
+import { Flex } from '@chakra-ui/react';
 
 const ResetPassword = () => {
   const { errors, register, isSubmitting, reset, handleSubmit } =
@@ -33,53 +38,82 @@ const ResetPassword = () => {
   };
 
   return (
-    <Card.Root>
-      <Card.Contents>
-        <Card.Title title="Resetar senha" />
-        <Card.Subtitle
-          subtitle="A senha deve ter entre 8 e 32 caracteres. Deve ter no mínimo 1 número, 1 letra minúscula, 1 letra maiúscula, 1 caracter especial !@#$%&*- "
-          color="rgba(22, 61, 102, 0.80)"
-          fontSize="sm"
-        />
-      </Card.Contents>
-      <Form.Root<PasswordForm>
-        onSubmitForm={onSubmitForm}
-        handleSubmit={handleSubmit}
+    <LayoutBackgroundColor>
+      <Flex
+        flex={1}
+        w="full"
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        px="5"
       >
-        <Form.Input
-          id="password"
-          label="Senha"
-          name="password"
-          placeholder="Insira sua senha"
-          register={register}
-          errors={errors}
-          type={typePassword}
-        >
-          <CustomViewPassword
-            onClick={togglePassword}
-            showPassword={showPassword}
-          />
-        </Form.Input>
-        <Form.Input
-          id="confirm-password"
-          label="Confirmar senha"
-          name="confirmPassword"
-          placeholder="Confirmar senha"
-          register={register}
-          errors={errors}
-          type={typeConfirmPassword}
-        >
-          <CustomViewPassword
-            onClick={toggleConfirmPassword}
-            showPassword={showConfirmPassword}
-          />
-        </Form.Input>
-        <Form.Actions>
-          <Form.Action isSubmitting={isSubmitting} text="Resetar senha" />
-        </Form.Actions>
-      </Form.Root>
-      <CustomLink />
-    </Card.Root>
+        <CustomImage
+          alt="logo"
+          src="/logo.svg"
+          width={150}
+          height={70}
+          unoptimized
+          priority={false}
+          mt="10"
+          mb="5"
+        />
+        <Card.Root>
+          <Card.Contents>
+            <Card.Title title="Resetar senha" />
+            <Card.Subtitle
+              subtitle="A senha deve ter entre 8 e 32 caracteres. Deve ter no mínimo 1 número, 1 letra minúscula, 1 letra maiúscula, 1 caracter especial !@#$%&*- "
+              color="rgba(22, 61, 102, 0.80)"
+              fontSize="sm"
+              py="3"
+            />
+          </Card.Contents>
+          <Form.Root<PasswordForm>
+            onSubmitForm={onSubmitForm}
+            handleSubmit={handleSubmit}
+          >
+            <Form.Input
+              id="password"
+              label="Senha"
+              name="password"
+              placeholder="Insira sua senha"
+              register={register}
+              errors={errors}
+              type={typePassword}
+            >
+              <InputRightElement h={'full'}>
+                <CustomButtonPassword onClick={togglePassword}>
+                  {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+                </CustomButtonPassword>
+              </InputRightElement>
+            </Form.Input>
+            <Form.Input
+              id="confirm-password"
+              label="Confirmar senha"
+              name="confirmPassword"
+              placeholder="Confirmar senha"
+              register={register}
+              errors={errors}
+              type={typeConfirmPassword}
+            >
+              <InputRightElement h={'full'}>
+                <CustomButtonPassword onClick={toggleConfirmPassword}>
+                  {showConfirmPassword ? <ViewIcon /> : <ViewOffIcon />}
+                </CustomButtonPassword>
+              </InputRightElement>
+            </Form.Input>
+            <Form.Actions>
+              <Form.Action
+                isSubmitting={isSubmitting}
+                text="Resetar senha"
+                pt="5"
+                pb="8"
+              />
+            </Form.Actions>
+          </Form.Root>
+          <CustomLink />
+        </Card.Root>
+      </Flex>
+    </LayoutBackgroundColor>
   );
 };
 

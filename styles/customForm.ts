@@ -6,7 +6,6 @@ import {
   FormLabel,
   Button,
   ButtonProps,
-  Text
 } from '@chakra-ui/react';
 
 export const BaseField = css`

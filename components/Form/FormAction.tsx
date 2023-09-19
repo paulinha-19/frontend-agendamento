@@ -10,10 +10,12 @@ export const FormAction = ({
   type = 'submit',
   colorScheme = 'blue',
   isSubmitting,
+  pt = '',
+  pb = '',
   ...props
 }: FormActionProps) => {
   return (
-    <Box pt={5} pb={8}>
+    <Box pt={pt} pb={pb}>
       <Button type={type} {...props} colorScheme={colorScheme} minW="100%">
         {isSubmitting ? 'Enviando...' : text}
       </Button>
